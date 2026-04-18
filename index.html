@@ -68,12 +68,22 @@ nav.scrolled{background:rgba(8,8,14,0.92);backdrop-filter:blur(24px);border-bott
 .hero-name .outline{-webkit-text-stroke:1.5px rgba(255,255,255,0.2);color:transparent;display:block}
 .hero-desc{font-size:clamp(14px,2vw,17px);color:var(--text2);max-width:500px;line-height:1.8;font-weight:300;margin:1.5rem 0 2.5rem;opacity:0;animation:fadeUp .7s .5s forwards}
 .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;align-items:center;opacity:0;animation:fadeUp .7s .65s forwards}
+
+/* BUTTONS */
 .btn-p{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#090910;font-family:var(--fm);font-size:12px;font-weight:500;padding:13px 24px;text-decoration:none;letter-spacing:1.5px;text-transform:uppercase;position:relative;overflow:hidden;transition:transform .2s;white-space:nowrap}
 .btn-p::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,0.15);transform:translateX(-101%);transition:transform .3s}
 .btn-p:hover{transform:translateY(-2px)}
 .btn-p:hover::after{transform:translateX(0)}
 .btn-g{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--border);color:var(--text2);font-family:var(--fm);font-size:12px;padding:13px 24px;text-decoration:none;letter-spacing:1.5px;text-transform:uppercase;transition:border-color .25s,color .25s,transform .2s;white-space:nowrap}
 .btn-g:hover{border-color:rgba(255,255,255,0.25);color:var(--text);transform:translateY(-2px)}
+
+/* RESUME DOWNLOAD BUTTON */
+.btn-resume{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(6,255,165,0.35);color:var(--accent3);font-family:var(--fm);font-size:12px;padding:13px 24px;text-decoration:none;letter-spacing:1.5px;text-transform:uppercase;position:relative;overflow:hidden;transition:color .3s,transform .2s;white-space:nowrap}
+.btn-resume::before{content:'';position:absolute;inset:0;background:var(--accent3);transform:translateX(-101%);transition:transform .35s cubic-bezier(.4,0,.2,1)}
+.btn-resume:hover{color:#090910;transform:translateY(-2px)}
+.btn-resume:hover::before{transform:translateX(0)}
+.btn-resume svg,.btn-resume span{position:relative;z-index:1}
+
 .hero-stats{display:flex;gap:2.5rem;margin-top:3.5rem;padding-top:2rem;border-top:1px solid var(--border);opacity:0;animation:fadeUp .7s .8s forwards;flex-wrap:wrap}
 .stat-n{font-family:var(--fh);font-size:32px;font-weight:800;color:var(--accent);line-height:1}
 .stat-l{font-family:var(--fm);font-size:10px;color:var(--text3);letter-spacing:2px;text-transform:uppercase;margin-top:5px}
@@ -183,6 +193,11 @@ section{padding:6rem 5vw;position:relative}
 .soc-btn span,.soc-btn svg{position:relative;z-index:1}
 .soc-btn svg{width:14px;height:14px;fill:currentColor}
 
+/* RESUME SOC BTN VARIANT */
+.soc-btn.resume-btn{border-color:rgba(6,255,165,0.3);color:var(--accent3)}
+.soc-btn.resume-btn::before{background:var(--accent3)}
+.soc-btn.resume-btn:hover{border-color:var(--accent3);color:#090910}
+
 footer{padding:2rem 5vw;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;font-family:var(--fm);font-size:11px;color:var(--text3);letter-spacing:1px;flex-wrap:wrap;gap:1rem}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
@@ -192,20 +207,16 @@ footer{padding:2rem 5vw;border-top:1px solid var(--border);display:flex;align-it
 /* ============================================
    RESPONSIVE BREAKPOINTS
    ============================================ */
-
-/* Tablet */
 @media(max-width:1024px){
   .hero-inner{gap:3rem}
   .hero-photo-ring{width:240px;height:240px}
   .about-wrap{gap:3.5rem}
 }
 
-/* Small tablet / large mobile */
 @media(max-width:900px){
   .nav-links{display:none}
   .nav-cta{display:none}
   .hamburger{display:flex}
-
   #hero{min-height:100vh;padding:80px 5vw 5rem}
   .hero-inner{flex-direction:column-reverse;gap:2.5rem;align-items:flex-start;justify-content:flex-end}
   .hero-photo-wrap{align-self:center;width:100%;display:flex;justify-content:center}
@@ -217,11 +228,8 @@ footer{padding:2rem 5vw;border-top:1px solid var(--border);display:flex;align-it
   .reveal-left.visible,.reveal-right.visible{opacity:1;transform:translateY(0)}
 }
 
-/* Mobile */
 @media(max-width:600px){
   section{padding:4rem 5vw}
-
-  /* Hero */
   #hero{padding:72px 5vw 4rem;min-height:auto}
   .hero-inner{gap:2rem}
   .hero-photo-ring{width:160px;height:160px}
@@ -230,21 +238,15 @@ footer{padding:2rem 5vw;border-top:1px solid var(--border);display:flex;align-it
   .hero-name{font-size:clamp(38px,13vw,64px);letter-spacing:-1.5px;line-height:.95}
   .hero-desc{font-size:14px;margin:1.2rem 0 2rem}
   .hero-ctas{gap:10px}
-  .btn-p,.btn-g{font-size:11px;padding:11px 18px;letter-spacing:1px}
+  .btn-p,.btn-g,.btn-resume{font-size:11px;padding:11px 18px;letter-spacing:1px}
   .hero-stats{margin-top:2.5rem;padding-top:1.5rem;gap:1.5rem}
   .stat-n{font-size:26px}
   .stat-l{font-size:9px}
   .scroll-hint{display:none}
-
-  /* Section titles */
   .s-title{margin-bottom:2rem}
-
-  /* About */
   .contacts{gap:12px}
   .c-row{font-size:11px}
   .c-icon{width:30px;height:30px}
-
-  /* Timeline */
   .timeline{padding-left:1.5rem}
   .t-item{padding:0 0 3rem 2rem}
   .t-role{font-size:18px}
@@ -252,38 +254,27 @@ footer{padding:2rem 5vw;border-top:1px solid var(--border);display:flex;align-it
   .t-bullets li{font-size:13px}
   .t-tags{gap:6px}
   .ttag{font-size:9px;padding:3px 8px}
-
-  /* Projects */
   .proj-grid{grid-template-columns:1fr;gap:1.2rem}
   .proj-card{padding:1.4rem}
   .proj-title{font-size:17px}
   .proj-desc{font-size:13px}
-
-  /* Certs */
   .cert-grid{grid-template-columns:1fr}
   .cert-card{padding:1.2rem 1.4rem}
   .cert-name{font-size:13px}
-
-  /* Education */
   .edu-grid{grid-template-columns:1fr 1fr}
   .edu-card{padding:1.2rem}
   .edu-deg{font-size:14px}
   .edu-inst{font-size:12px}
-
-  /* Connect */
   #connect{padding:5rem 5vw}
   .connect-h{letter-spacing:-1.5px}
   .soc-row{gap:10px}
   .soc-btn{padding:11px 18px;font-size:10px;min-width:100px}
-
-  /* Footer */
   footer{flex-direction:column;align-items:center;text-align:center;gap:.8rem;padding:1.5rem 5vw}
 }
 
-/* Very small mobile */
 @media(max-width:380px){
   .hero-name{font-size:clamp(34px,14vw,52px)}
-  .btn-p,.btn-g{padding:10px 14px;font-size:10px}
+  .btn-p,.btn-g,.btn-resume{padding:10px 14px;font-size:10px}
   .hero-ctas{gap:8px}
   .edu-grid{grid-template-columns:1fr}
   .soc-row{flex-direction:column;align-items:center}
@@ -336,6 +327,11 @@ footer{padding:2rem 5vw;border-top:1px solid var(--border);display:flex;align-it
         <a href="#experience" class="btn-p">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
           View Work
+        </a>
+        <!-- ✅ RESUME DOWNLOAD BUTTON -->
+        <a href="Jeyendran_D_Resume.pdf" download="Jeyendran_D_Resume.pdf" class="btn-resume">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+          <span>Download CV</span>
         </a>
         <a href="https://github.com/Jeyendrand" target="_blank" class="btn-g">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
@@ -546,6 +542,11 @@ footer{padding:2rem 5vw;border-top:1px solid var(--border);display:flex;align-it
       <a href="https://github.com/Jeyendrand" target="_blank" class="soc-btn">
         <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
         <span>GitHub</span>
+      </a>
+      <!-- ✅ RESUME DOWNLOAD IN CONNECT SECTION -->
+      <a href="Jeyendran_D_Resume.pdf" download="Jeyendran_D_Resume.pdf" class="soc-btn resume-btn">
+        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+        <span>Download CV</span>
       </a>
     </div>
   </div>
